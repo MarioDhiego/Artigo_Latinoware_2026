@@ -83,7 +83,9 @@ node [inner sep=0,outer sep=0,above right]
 \begin{document}
 
 % paper title
-\title{Dashboard Analítico em R para Visualização Interativa, Modelagem Temporal e Geração de Relatórios Parametrizados Aplicados aos Registros de Licenciamento de Veículos\\[1ex] \Large R Analytical Dashboard for Interactive Visualization, Temporal Modeling and Parameterized Report Generation Applied to Vehicle Licencing Registry}
+\title{Dashboard Analítico em R para Visualização Interativa, Modelagem Temporal e Geração de Relatórios Parametrizados Aplicados aos Registros de Licenciamento de Veículos}
+
+%\\[1ex] \Large R Analytical Dashboard for Interactive Visualization, Temporal Modeling and Parameterized Report Generation Applied to Vehicle Licencing Registry
 
 %------------------------------------------------------------------------- 
 %------------------------IMPORTANTE---------------------------------------
@@ -91,17 +93,33 @@ node [inner sep=0,outer sep=0,above right]
 \finalfalse % <-- MANTIDO FALSE PARA REVISÃO CEGA (BLIND REVIEW)
 %------------------------------------------------------------------------- 
 
+%\iffinal
+%\else
+%  \author{ID do artigo Latin.science 2026: 34563 \\ }
+%\fi
+
+
 \iffinal
 \author{
-\IEEEauthorblockN{Nome do primeiro autor}
-\IEEEauthorblockA{Afiliação\\
-Cidade, País\\
-email ou ORCID}
+\IEEEauthorblockN{Mário Diego Rocha Valente}
+\IEEEauthorblockA{Gerência de Estatística - DETRAN\\
+Belém-PA, Brasil\\
+mario.valente@detran.pa.gov.br}
 \and
-\IEEEauthorblockN{Nome do segundo autor}
-\IEEEauthorblockA{Afiliação\\
-Cidade, País\\
-email ou ORCID}
+\IEEEauthorblockN{Gabriel Baia da Silva}
+\IEEEauthorblockA{Faculdade de Computação - UFPA\\
+Belém-PA, Brasil\\
+gabrielkadran@gmail.com}
+\and
+\IEEEauthorblockN{Kleber Bezerra Salim}
+\IEEEauthorblockA{Gerência de Estatística - DETRAN\\
+Belém-PA, Brasil\\
+kleber.salim@detran.pa.gov.br}
+\and
+\IEEEauthorblockN{Tito Félix de Oliveira}
+\IEEEauthorblockA{Gerência de Desenvolvimento - DETRAN\\
+Belém-PA, Brasil\\
+tito.felix@detran.pa.gov.br}
 }
 \else
 %  \author{ID do artigo Latin.science 2026: COLOQUE_SEU_ID_AQUI \\ }
@@ -116,7 +134,7 @@ email ou ORCID}
 % ===================== RESUMOS (INGLÊS E PORTUGUÊS) =====================
 
 \begin{abstract}
-This paper presents the development of an analytical dashboard in R for interactive visualization, temporal modeling, and parameterized report generation regarding the vehicle fleet in a Brazilian state. The architecture integrates the \textit{Shiny} and \textit{Quarto} frameworks, utilizing \textit{Apache Arrow} for data optimization. Predictive modeling for fleet growth up to 2031 compared statistical approaches (ARIMA family) and deep learning methods (LSTM and GRU). The SARIMAX model achieved the best overall fit ($R^2 = 0.7240$), while the GRU model presented the lowest predictive error ($MAPE = 5.19\%$). To ensure scalability and high availability, a \textit{DevOps} workflow based on containerization and orchestration (\textit{Podman}, GitLab CI/CD, and \textit{Kubernetes}) was implemented. The project highlights the feasibility of combining data science, machine learning, and modern orchestration to support government management and public transparency.
+To strengthen evidence-based public policymaking, this paper presents the development of an analytical dashboard in the R programming language for interactive visualization, temporal modeling, and parameterized report generation regarding the vehicle fleet in a Brazilian state. The architecture integrates the \textit{Shiny} and \textit{Quarto Markdown} frameworks, utilizing \textit{Apache Arrow} for data optimization. Predictive modeling for fleet growth up to 2031 compared statistical approaches (ARIMA family) and deep learning methods (LSTM and GRU). The SARIMAX model achieved the best overall fit ($R^2 = 0.7240$), while the GRU model presented the lowest predictive error ($MAPE = 5.19\%$). To ensure scalability and high availability, a \textit{DevOps} workflow based on containerization and orchestration (\textit{Podman}, GitLab CI/CD, and \textit{Kubernetes}) was implemented. The project highlights the feasibility of combining data science, machine learning, and modern orchestration to support government management and public transparency.
 \end{abstract}
 
 \renewcommand{\IEEEkeywordsname}{Keywords}
@@ -126,7 +144,7 @@ Analytical Dashboard; Interactive Visualization; Temporal Series; Predictive Mod
 
 \renewcommand{\abstractname}{Resumo}
 \begin{abstract}
-Este trabalho apresenta o desenvolvimento de um dashboard analítico em R para a visualização interativa, modelagem temporal e geração de relatórios parametrizados da frota veicular de um estado brasileiro. A arquitetura integra os \textit{frameworks Shiny} e \textit{Quarto}, utilizando \textit{Apache Arrow} para otimização de dados. A modelagem preditiva do crescimento da frota até 2031 comparou abordagens estatísticas (família ARIMA) e de aprendizado profundo (LSTM e GRU). O modelo SARIMAX obteve o melhor ajuste global ($R^2 = 0,7240$), enquanto o GRU apresentou o menor erro preditivo ($MAPE = 5,19\%$). Para assegurar escalabilidade e alta disponibilidade, implementou-se um fluxo \textit{DevOps} baseado em conteinerização e orquestração (\textit{Podman}, GitLab CI/CD e \textit{Kubernetes}). O projeto evidencia a viabilidade de unir ciência de dados, aprendizagem de máquina e orquestração moderna no apoio à gestão governamental e transparência pública.
+Para fortalecer a formulação de políticas públicas baseadas em evidências, este trabalho apresenta o desenvolvimento de um dashboard analítico em linguagem R para a visualização interativa, modelagem temporal e geração de relatórios parametrizados da frota veicular de um estado brasileiro. A arquitetura integra os \textit{frameworks Shiny} e \textit{Quarto Markdown}, utilizando \textit{Apache Arrow} para otimização de dados. A modelagem preditiva do crescimento da frota até 2031 comparou abordagens estatísticas (família ARIMA) e de aprendizado profundo (LSTM e GRU). O modelo SARIMAX obteve o melhor ajuste global ($R^2 = 0,7240$), enquanto o GRU apresentou o menor erro preditivo ($MAPE = 5,19\%$). Para assegurar escalabilidade e alta disponibilidade, implementou-se um fluxo \textit{DevOps} baseado em conteinerização e orquestração (\textit{Podman}, GitLab CI/CD e \textit{Kubernetes}). O projeto evidencia a viabilidade de unir ciência de dados, aprendizagem de máquina e orquestração moderna no apoio à gestão governamental e transparência pública.
 \end{abstract}
 
 \renewcommand\IEEEkeywordsname{Palavras-chave}
@@ -142,6 +160,7 @@ Dashboard Analítico; Visualização Interativa; Séries Temporais; Modelagem Pr
 
 O crescimento acelerado da produção de dados governamentais tem ampliado a necessidade de mecanismos capazes de transformar grandes volumes de informações em instrumentos eficazes de transparência pública, apoio à tomada de decisão e formulação de políticas públicas baseadas em evidências \cite{janssen2012}. No contexto da administração pública brasileira, iniciativas voltadas à abertura e disseminação de dados passaram a ganhar maior relevância após a promulgação da Lei de Acesso à Informação (Lei nº 12.527/2011), estabelecendo diretrizes para disponibilização ativa de informações institucionais à sociedade \cite{brasil2011}.
 
+
 Segundo o Radar Nacional da Transparência Pública \cite{atricon2025}, embora os índices de transparência tenham apresentado evolução significativa nos últimos anos, ainda existem lacunas relacionadas à disponibilização estruturada de informações analíticas em diversos setores governamentais, especialmente em áreas relacionadas à mobilidade urbana e gestão do trânsito. Nesse cenário, órgãos executivos de trânsito passaram a demandar soluções computacionais capazes de integrar processamento estatístico, visualização interativa e disseminação automatizada de informações em ambientes acessíveis ao público externo.
 
 A crescente complexidade dos ambientes analíticos contemporâneos impulsionou a adoção de plataformas integradas para ciência de dados e visualização interativa. Tradicionalmente, ferramentas de \textit{Business Intelligence }(BI) proprietárias têm sido adotadas por instituições públicas. No entanto, essas soluções frequentemente esbarram em limitações de customização, algoritmos \textit{black-box} e altos custos de licenciamento e \textit{vendor lock-in} (dependência de fornecedor). Esse panorama motivou uma maior aproximação entre análise estatística robusta e desenvolvimento de sistemas web de código aberto \cite{wickham2017}. 
@@ -151,6 +170,7 @@ Nesse contexto, a linguagem R destaca-se por sua ampla utilização em aplicaç�
 No estado em estudo, um órgão de trânsito administra uma base de dados veiculares associada ao Registro Nacional de Veículos Automotores (RENAVAM), composta por milhões de registros históricos. A elevada dimensionalidade dessas informações espaço-temporais, associada à necessidade de indicadores de motorização e projeções preditivas, torna indispensável a utilização de arquiteturas analíticas escaláveis. O desafio se acentua ao lidar com dados de cidades do interior, onde a esparsidade dos registros históricos exige técnicas avançadas de engenharia de \textit{features} e \textit{deep learning} para garantir a convergência de modelos \cite{knaflic2019storytelling}.
 
 Antes do desenvolvimento desta solução, solicitações estatísticas veiculares eram atendidas manualmente, resultando em elevada demanda operacional e lentidão na disseminação contínua de informações. A ausência de ferramentas interativas restringia a exploração dinâmica por gestores públicos, pesquisadores e cidadãos interessados em compreender os padrões de crescimento e distribuição da frota veicular.
+
 
 Diante desse contexto, este trabalho apresenta o desenvolvimento de um sistema analítico integrado baseado na linguagem R, utilizando Shiny e Quarto para a construção de dashboards interativos e geração de relatórios parametrizados sobre a frota desse órgão. A arquitetura incorpora ETL otimizado via formato colunar Apache Arrow \cite{richardson2026}, modelagem estatística de séries temporais, redes neurais e integração contínua baseada em orquestração de microsserviços \cite{burns2016borgomega}.
 
@@ -167,6 +187,7 @@ O objetivo central deste trabalho é desenvolver uma arquitetura analítica inte
 O uso de plataformas analíticas interativas voltadas à transparência pública e exploração de dados governamentais tem crescido significativamente, impulsionado pelas iniciativas de governo digital \cite{janssen2012}. Nesse cenário, dashboards analíticos passaram a desempenhar um papel estratégico.
 
 Diversos estudos têm explorado o Shiny em contextos governamentais. Kuo et al. \cite{kuo2019} desenvolveram um dashboard interativo para monitoramento epidemiológico utilizando dados espaciais e séries temporais em R, demonstrando como aplicações reativas ampliam a disseminação em tempo real. Fay et al. \cite{fay2021} destacam o potencial do Shiny na construção de plataformas reprodutíveis, enfatizando a integração com bibliotecas estatísticas. Contudo, em aplicações de mobilidade pública, o desafio do volume de dados em memória frequentemente inviabiliza arquiteturas Shiny tradicionais que não utilizem esquemas \textit{out-of-memory}.
+
 
 No domínio da mobilidade urbana, Wang et al. \cite{wang2020} utilizaram séries temporais para previsão do crescimento automotivo em centros urbanos, evidenciando a importância preditiva no planejamento viário. Em abordagens administrativas, Barros et al. \cite{barros2017} discutem o uso de ARIMA e SARIMA em dados com sazonalidade e tendência. Mais recentemente, modelos de aprendizado profundo (LSTM e GRU) vêm sendo aplicados a séries temporais complexas \cite{ghojogh2023recurrentneuralnetworkslong}, apresentando excelente desempenho ao capturar dependências não lineares e múltiplos fatores externos.
 
@@ -252,7 +273,7 @@ A aplicação utiliza o \textit{framework Shiny} organizado no padrão \textit{U
 
 %----------------------------------------------------------------------------------%
 
-\section{Modelagem Estatística e Modelos Preditivos de Deep Learning}
+\section{Modelagem Estatística e Deep Learning}
 
 Adotou-se a abordagem de \textit{storytelling} analítico de Knaflic (2019) para projetar os dados espacialmente e temporalmente. As seções a seguir fundamentam os algoritmos preditivos empregados. 
 
@@ -295,9 +316,20 @@ Para a captura de não linearidades severas de longo alcance, projetaram-se arqu
     \label{fig:redes_neurais}
 \end{figure}
 
+\newpage
 Redes neurais recorrentes convencionais frequentemente esbarram na limitação do gradiente descendente (\textit{vanishing gradient}), o que dificulta o aprendizado de dependências temporais extensas. A arquitetura LSTM resolve esse problema introduzindo mecanismos de controle de fluxo de informação chamados de portões (\textit{gates}): o portão de esquecimento (\textit{forget gate}), responsável por descartar dados irrelevantes; o portão de entrada (\textit{input gate}), que assimila novas informações à memória; e o portão de saída (\textit{output gate}), responsável por transmitir os valores processados para os estados subsequentes da rede \cite{hochreiter1997}.
 
-Enquanto a LSTM possui um custo computacional maior devido ao uso constante desses três \textit{gates}, a GRU otimiza significativamente esse processo fundindo os estados ocultos e utilizando apenas dois mecanismos principais: o portão de atualização (\textit{update gate}) e o portão de redefinição (\textit{reset gate}) \cite{cho2014learning}. Para resolver o problema prático de ausência de granularidade temporal nas cidades do interior do estado (esparsidade de amostras), este trabalho propõe uma abordagem de \textbf{engenharia de tensores multidimensionais}, ilustrada na Fig.~\ref{fig:gru_fluxo}.
+Enquanto a LSTM possui um custo computacional maior devido ao uso constante desses três \textit{gates}, a GRU otimiza significativamente esse processo fundindo os estados ocultos e utilizando apenas dois mecanismos principais: o portão de atualização (\textit{update gate}) e o portão de redefinição (\textit{reset gate}) \cite{cho2014learning}. Para formalizar a dinâmica de aprendizado da célula GRU, que obteve o melhor desempenho neste estudo, o fluxo de informação no instante $t$ é governado pelas seguintes equações:
+
+$$z_t = \sigma(W_z x_t + U_z h_{t-1} + b_z)$$
+$$r_t = \sigma(W_r x_t + U_r h_{t-1} + b_r)$$
+$$\tilde{h}_t = \tanh(W_h x_t + U_h (r_t \odot h_{t-1}) + b_h)$$
+$$h_t = (1 - z_t) \odot h_{t-1} + z_t \odot \tilde{h}_t$$
+
+Onde $\sigma$ denota a função de ativação sigmoide não linear, $\odot$ representa o produto de Hadamard (\textit{element-wise}), $x_t$ é o vetor de entrada multivariado, $h_{t-1}$ é o estado oculto da iteração anterior. As matrizes de pesos $W$ e $U$, bem como os vetores de viés $b$, constituem os parâmetros hiperdimensionais otimizados iterativamente pelo otimizador Adam durante a fase de convergência.
+
+\newpage
+Para resolver o problema prático de ausência de granularidade temporal nas cidades do interior do estado (esparsidade de amostras), este trabalho propõe uma abordagem de \textbf{engenharia de tensores multidimensionais}, ilustrada na Fig.~\ref{fig:gru_fluxo}.
 
 \begin{figure}[!ht]
 \centering
@@ -326,8 +358,11 @@ Enquanto a LSTM possui um custo computacional maior devido ao uso constante dess
 \label{fig:gru_fluxo}
 \end{figure}
 
-Em vez de instanciar dezenas de modelos independentes para cada município, utilizou-se uma decomposição estatística (isolando tendência e ruído com Z-score) para compor uma matriz de $N$ colunas (municípios) acoplada aos \textit{lags} temporais. Esse arranjo resulta num \textit{tensor de entrada global} enviado ao GRU. Essa estratégia impõe que a camada densa transfira o conhecimento de crescimento de polos urbanos maiores para as dinâmicas escassas de polos menores.
+Em vez de instanciar dezenas de modelos independentes para cada município (o que sobrecarregaria a infraestrutura e impediria a convergência de cidades pequenas), optou-se por uma decomposição tensorial. Primeiramente, estabilizou-se a variância e a escala das curvas através da normalização Z-score em cada vetor municipal, dada por:
 
+$$z = \frac{x - \mu}{\sigma}$$
+
+Onde $\mu$ é a média histórica e $\sigma$ é o desvio padrão da frota do município. Após essa etapa geométrica, os vetores padronizados foram acoplados aos \textit{lags} temporais, originando uma matriz de $N$ colunas. Esse arranjo estrutural resulta num \textit{tensor de entrada global} tridimensional. Essa topologia força a camada densa da GRU a transferir a \textit{feature representation} dos padrões de crescimento de grandes polos urbanos para mitigar as dinâmicas escassas de municípios menores.
 
 %-------------------------------------------------------------------------------%
 \subsection{Subsistema de Relatórios Parametrizados (Quarto)}
@@ -391,7 +426,10 @@ Para garantir resiliência e alta disponibilidade, implementou-se um fluxo \text
 \label{fig:deployment}
 \end{figure}
 
-O repositório é gerenciado via \textit{GitLab} CI, automatizando os testes e enviando as imagens para o \textit{Registry}. O cluster Kubernetes \cite{burns2016borgomega} consome essas imagens, orquestrando réplicas de contêineres (\textit{Pods}) conforme a demanda. Um dos principais desafios técnicos de aplicações assíncronas baseadas em soquetes (Shiny) sob balanceamento de carga é a perda de estado. Isso foi solucionado configurando-se o \textit{Ingress Controller} do Kubernetes com "afinidade de sessão" (\textit{sticky sessions} via \textit{cookies}). Tal técnica, combinada com protocolo criptografado estrito (WSS - \textit{WebSocket Secure}), garante que requisições longas, como a compilação paralela de pesados PDFs em LaTeX pelo \textit{Quarto}, não sofram \textit{timeout} ou interrupções de rota.
+
+O repositório é gerenciado via \textit{GitLab} CI, automatizando os testes e enviando as imagens para o \textit{Registry}. O cluster Kubernetes \cite{burns2016borgomega} consome essas imagens, orquestrando réplicas de contêineres (\textit{Pods}) conforme a demanda. Um dos principais desafios técnicos de aplicações assíncronas baseadas em soquetes (Shiny) sob balanceamento de carga é a perda de estado. Isso foi solucionado configurando-se o \textit{Ingress Controller} do Kubernetes com "afinidade de sessão" (\textit{sticky sessions} via \textit{cookies}). 
+
+Tal técnica, combinada com protocolo criptografado estrito (WSS - \textit{WebSocket Secure}), garante que requisições longas, como a compilação paralela de pesados PDFs em LaTeX pelo \textit{Quarto}, não sofram \textit{timeout} ou interrupções de rota.
 
 
 \section{Resultados e Discussão}
@@ -400,7 +438,7 @@ O mapeamento descritivo da base foi integrado a quatro painéis estruturais prin
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=0.9\linewidth]{PainelResumo.png}
+    \includegraphics[width=0.8\linewidth]{PainelResumo.png}
     \caption{Aba Principal do \textit{dashboard} desenvolvido em \textit{Shiny}.}
     \label{fig:PainelResumo}
 \end{figure}
@@ -409,7 +447,7 @@ No painel de Análise Detalhada mostrado na Fig.~\ref{fig:PainelDetalhes}, as ta
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=0.9\linewidth]{PainelDetalhes.png}
+    \includegraphics[width=0.95\linewidth]{PainelDetalhes.png}
     \caption{Estatística Resumo sobre os Veículos Registrados.}
     \label{fig:PainelDetalhes}
 \end{figure}
@@ -418,7 +456,7 @@ A Taxa de Motorização, indicador essencial para engenheiros de trânsito e soc
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=0.9\linewidth]{GraficoTaxaMotorizacao.png}
+    \includegraphics[width=0.95\linewidth]{GraficoTaxaMotorizacao.png}
     \caption{Taxa de Motorização sobre os Veículos Registrados.}
     \label{fig:GraficoTaxaMotorizacao}
 \end{figure}
@@ -426,16 +464,35 @@ A Taxa de Motorização, indicador essencial para engenheiros de trânsito e soc
 
 \subsection{Resultados da Modelagem e Avaliação Preditiva}
 
-Para subsidiar tomadas de decisões a longo prazo, o sistema expõe o painel de Previsão Analítica, mostrado na Fig.~\ref{fig:PainelPrevisoes}. Como a arquitetura estipula que a inferência preditiva ocorra de maneira agnóstica na fase de pré-processamento para não onerar o tempo de resposta do \textit{host}, os vetores resultantes até o horizonte temporal de 2031 foram precalculados, salvos no sistema de arquivos e carregados reativamente no \texttt{Shiny}.
+Para subsidiar tomadas de decisões a longo prazo, o sistema expõe o painel de Previsão Analítica, mostrado na Fig.~\ref{fig:PainelPrevisoes}. Como a arquitetura estipula que a inferência preditiva ocorra de maneira agnóstica na fase de pré-processamento para não onerar o tempo de resposta do \textit{host}, os vetores resultantes até o horizonte temporal de 2.031 foram precalculados, salvos no sistema de arquivos e carregados reativamente no \texttt{Shiny}.
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=0.9\linewidth]{PainelPrevisoes.png}
+    \includegraphics[width=0.95\linewidth]{PainelPrevisoes.png}
     \caption{Painel de Previsões Temporais e Comparação de Modelos}
     \label{fig:PainelPrevisoes}
 \end{figure}
 
-Os resultados preditivos foram avaliados com base no Erro Percentual Absoluto Médio (MAPE), no Erro Absoluto Médio (MAE), na Raiz do Erro Quadrático Médio (RMSE), no Critério de Informação de Akaike (AIC), no Critério de Informação Bayesiano (BIC) e no coeficiente de determinação ($R^2$), métricas robustas para dados de trânsito.
+\newpage
+A acurácia e a estabilidade de convergência dos modelos foram aferidas empregando-se métricas consagradas na literatura de previsão de séries temporais e aprendizado de máquina \cite{hyndman2021forecasting, goodfellow2016deep}. Para avaliar a magnitude dos resíduos e o desvio relativo, calcularam-se o Erro Absoluto Médio (MAE), o Erro Percentual Absoluto Médio (MAPE) e a Raiz do Erro Quadrático Médio (RMSE) \cite{hyndman2021forecasting}, definidos pelas seguintes equações:
+
+$$MAE = \frac{1}{n} \sum_{t=1}^{n} |y_t - \hat{y}_t|$$
+
+$$MAPE = \frac{100\%}{n} \sum_{t=1}^{n} \left| \frac{y_t - \hat{y}_t}{y_t} \right|$$
+
+$$RMSE = \sqrt{\frac{1}{n} \sum_{t=1}^{n} (y_t - \hat{y}_t)^2}$$
+
+Onde $y_t$ representa a contagem real da frota observada no instante $t$, $\hat{y}_t$ é a projeção preditiva correspondente gerada pelos algoritmos e $n$ determina a dimensão temporal da janela de teste. Para mensurar a proporção da variância global explicada pelo modelo, adotou-se o Coeficiente de Determinação ($R^2$) \cite{goodfellow2016deep}:
+
+$$R^2 = 1 - \frac{\sum_{t=1}^{n} (y_t - \hat{y}_t)^2}{\sum_{t=1}^{n} (y_t - \bar{y})^2}$$
+
+Sendo $\bar{y}$ a média global das observações reais da frota. Adicionalmente, para os algoritmos estatísticos (onde a estimativa de máxima verossimilhança é diretamente computável), penalizou-se o excesso de complexidade paramétrica para evitar sobreajuste (\textit{overfitting}) através do Critério de Informação de Akaike (AIC) e do Critério de Informação Bayesiano (BIC) \cite{box1970time, hyndman2021forecasting}:
+
+$$AIC = 2k - 2\ln(\hat{L})$$
+
+$$BIC = k\ln(n) - 2\ln(\hat{L})$$
+
+Em que $k$ representa o número de parâmetros estimados de forma independente pelo modelo e $\hat{L}$ é o valor máximo da função de verossimilhança para o estimador.
 
 Entre os algoritmos estatísticos, o SARIMAX capturou de forma exímia os resíduos sazonais de 12 meses (IPVA) e as quebras estruturais induzidas por instabilidades fiscais anteriores. Ele obteve um MAPE de 5,78\% e coeficiente de determinação global ($R^2$) de 0,7240, o gráfico é mostrado na Fig.~\ref{fig:sarimax}.
 
@@ -455,9 +512,10 @@ Nas redes neurais complexas, o cenário difere. O LSTM enfrentou o clássico dil
     \label{fig:gru}
 \end{figure}
 
-\newpage
 Os algoritmos foram validados com uma janela de teste de 12 meses no final do treinamento. As métricas comparativas consolidadas de validação (\textit{test-set evaluation}) entre as metodologias testadas estão expostas na Tabela~\ref{tab:comparacao_modelos}.
 
+
+\newpage
 \begin{table}[!ht]
 \renewcommand{\arraystretch}{1.3}
 \centering
@@ -466,7 +524,7 @@ Os algoritmos foram validados com uma janela de teste de 12 meses no final do tr
 \resizebox{\columnwidth}{!}{%
 \begin{tabular}{l|c|c|c|c|c|c}
 \hline \hline
-\textbf{Modelo} & \textbf{MAPE (\%)} & \textbf{MAE} & \textbf{RMSE} & \textbf{AIC} & \textbf{BIC} & \textbf{$R^2$} \\
+\textbf{Modelo} & \textbf{MAPE} & \textbf{MAE} & \textbf{RMSE} & \textbf{AIC} & \textbf{BIC} & \textbf{$R^2$} \\
 \hline \hline
 LSTM    & 9,07 & 1,803 & 2,292 & 189,70 & 190,67 & 0,2581 \\
 GRU     & \textbf{5,19} & \textbf{1,129} & 1,634 & 181,57 & 182,54 & 0,6230 \\
@@ -478,7 +536,9 @@ SARIMAX & 5,78 & 1,198 & \textbf{1,398} & \textbf{177,83} & \textbf{178,80} & \t
 }
 \end{table}
 
-A eficácia do algoritmo GRU evidenciou-se na obtenção do menor erro da rodada ($MAPE = 5,19\%$). Sua matriz simplificada de dois gates reduziu o montante paramétrico que necessitava ser aprendido, tornando-se imune ao \textit{overfitting}. A engenharia preditiva combinada (mais de 140 municípios x 84 meses efetivos) alimentou a rede neural com mais de 12 mil exemplos de treinamento, viabilizando o entendimento do crescimento como um tecido interligado. 
+A eficácia do algoritmo GRU evidenciou-se na obtenção do menor erro da rodada ($MAPE = 5,19\%$). Sua matriz simplificada de dois gates reduziu o montante paramétrico que necessitava ser aprendido, tornando-se imune ao \textit{overfitting}. 
+
+A engenharia preditiva combinada (mais de 140 municípios versus 84 meses efetivos) alimentou a rede neural com mais de 12 mil exemplos de treinamento, viabilizando o entendimento do crescimento como um tecido interligado. 
 
 Em suma, ambos os modelos de ponta (SARIMAX para variância explicada e GRU para mitigação de erro absoluto) apontaram para o mesmo limiar logístico: um acréscimo explosivo de cerca de 60 mil novos veículos circulantes anualmente, saturando a infraestrutura das principais rodovias estaduais até 2031.
 
@@ -504,6 +564,7 @@ Para trabalhos futuros, o horizonte natural desta arquitetura caminha em direç�
 \section*{Agradecimentos}
 Aos órgãos de fomento à pesquisa e às equipes de tecnologia que disponibilizaram a base de dados anonimizada necessária para o desenvolvimento da plataforma.
 
+\newpage
 \section*{Declaração sobre uso de Inteligência Artificial}
 Declaro que ferramentas de Inteligência Artificial Generativa foram utilizadas neste trabalho nas seguintes etapas: Grandes Modelos de Linguagem (LLMs) foram utilizados para a revisão ortográfica e gramatical do texto, na etapa de escrita final do artigo. Todo o conteúdo gerado foi revisado criticamente e validado pelo autor, que assume integral responsabilidade pela originalidade e veracidade do texto final, em conformidade com a Portaria CNPq n° 2.664/2026.
 
