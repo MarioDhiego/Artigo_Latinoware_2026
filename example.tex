@@ -90,7 +90,7 @@ node [inner sep=0,outer sep=0,above right]
 %------------------------------------------------------------------------- 
 %------------------------IMPORTANTE---------------------------------------
 \newif\iffinal
-\finalfalse % <-- MANTIDO FALSE PARA REVISÃO CEGA (BLIND REVIEW)
+\finaltrue % <-- MANTIDO FALSE PARA REVISÃO CEGA (BLIND REVIEW)
 %------------------------------------------------------------------------- 
 
 %\iffinal
@@ -309,15 +309,199 @@ Para a captura de não linearidades severas de longo alcance, projetaram-se arqu
 
 \begin{figure}[!ht]
     \centering
-    \subfloat[Célula LSTM]{\includegraphics[width=1.8in]{LSTM.png}\label{fig:lstm}}
-    \hfil
-    \subfloat[Célula GRU]{\includegraphics[width=1.6in]{GRU.png}\label{fig:celula_gru}}
-    \caption{Representação das arquiteturas de Redes Neurais Recorrentes \cite{ghojogh2023recurrentneuralnetworkslong}.}
-    \label{fig:redes_neurais}
+    \includegraphics[width=0.75\columnwidth]{LSTM.png}
+    \vspace{-0.4cm}
+    \caption{Representação da célula LSTM
+    \cite{ghojogh2023recurrentneuralnetworkslong}.}
+    \label{fig:lstm}
 \end{figure}
 
-\newpage
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.75\columnwidth]{GRU.png}
+    \vspace{-0.4cm}
+    \caption{Representação da célula GRU
+    \cite{ghojogh2023recurrentneuralnetworkslong}.}
+    \label{fig:celula_gru}
+\end{figure}
+
 Redes neurais recorrentes convencionais frequentemente esbarram na limitação do gradiente descendente (\textit{vanishing gradient}), o que dificulta o aprendizado de dependências temporais extensas. A arquitetura LSTM resolve esse problema introduzindo mecanismos de controle de fluxo de informação chamados de portões (\textit{gates}): o portão de esquecimento (\textit{forget gate}), responsável por descartar dados irrelevantes; o portão de entrada (\textit{input gate}), que assimila novas informações à memória; e o portão de saída (\textit{output gate}), responsável por transmitir os valores processados para os estados subsequentes da rede \cite{hochreiter1997}.
+
+\begin{table}[H]
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.25}
+\centering
+\caption{Parâmetros utilizados no modelo \textit{LSTM}.}
+\label{tab:parametros_lstm}
+\small
+\begin{tabular}{
+>{\bfseries\raggedright\arraybackslash}p{0.34\columnwidth}|
+>{\raggedright\arraybackslash}p{0.54\columnwidth}
+}
+\hline\hline
+\textbf{Parâmetro} & \textbf{Configuração} \\
+\hline\hline
+
+Escopo do modelo
+& Uma rede independente por localidade \\
+\hline
+
+Período histórico
+& 2016--2025, totalizando 120 meses \\
+\hline
+
+Janela de entrada
+& 24 meses anteriores \\
+\hline
+
+Treinamento(n)
+& 84 janelas por localidade \\
+\hline
+
+Conjunto de teste
+& 12 meses finais da série \\
+\hline
+
+Dimensão da entrada
+& $24 \times 13$ \\
+\hline
+
+Variáveis de entrada
+& Resíduo normalizado e 12 indicadores mensais \\
+\hline
+
+Pré-processamento
+& Tendência quadrática e normalização $Z$-score \\
+\hline
+
+Arquitetura
+& $\mathrm{LSTM}(32) \rightarrow \mathrm{Dense}(1)$ \\
+\hline
+
+Função de perda
+& Erro quadrático médio (MSE) \\
+\hline
+
+Otimizador
+& Adam, com taxa de aprendizado $0{,}01$ \\
+\hline
+
+Número de épocas
+& 100 \\
+\hline
+
+Tamanho do lote
+& 8 \\
+\hline
+
+Validação interna
+& 10\% das janelas de treinamento \\
+\hline
+
+Semente aleatória
+& 42 \\
+\hline
+
+Horizonte futuro
+& 72 meses, com previsão recursiva \\
+\hline
+
+Histórico das perdas
+& Não persistido pelo script \\
+\hline\hline
+\end{tabular}
+\end{table}
+
+As redes neurais recorrentes foram treinadas utilizando janelas deslizantes de 24 meses. A implementação LSTM ajustou uma rede independente para cada localidade, enquanto a arquitetura GRU foi treinada globalmente, incorporando uma codificação \textit{one-hot} para identificar cada localidade. Em ambas as arquiteturas, a camada recorrente possui 32 unidades e é seguida por uma camada densa com uma unidade, responsável pela previsão de um único passo temporal.
+
+A série histórica utilizada pelas redes compreendeu o período de 2016 a 2025, totalizando 120 observações mensais, quando não considerados eventuais meses ausentes. A aplicação da janela de 24 meses produziu 96 janelas supervisionadas por localidade, das quais 84 foram destinadas ao treinamento e 12 foram reservadas para o teste temporal. As previsões futuras foram obtidas recursivamente, um mês por vez, até o horizonte de 72 meses.
+
+\begin{table}[H]
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.25}
+\centering
+\caption{Parâmetros utilizados no modelo \textit{GRU} global.}
+\label{tab:parametros_gru}
+\small
+\begin{tabular}{
+>{\bfseries\raggedright\arraybackslash}p{0.34\columnwidth}|
+>{\raggedright\arraybackslash}p{0.54\columnwidth}
+}
+\hline\hline
+\textbf{Parâmetro} & \textbf{Configuração} \\
+\hline\hline
+
+Escopo do modelo
+& Uma única rede global para todas as localidades \\
+\hline
+
+Período histórico
+& 2016--2025, totalizando 120 meses \\
+\hline
+
+Janela de entrada
+& 24 meses anteriores \\
+\hline
+
+Amostras de treinamento
+& 84 janelas por localidade, concatenadas no tensor global \\
+\hline
+
+Conjunto de teste
+& 12 meses finais da série \\
+\hline
+
+Dimensão da entrada
+& $24 \times (13 + N_{\mathrm{loc}})$ \\
+\hline
+
+Variáveis de entrada
+& Ruído normalizado, 12 indicadores mensais e indicadores da localidade \\
+\hline
+
+Pré-processamento
+& Tendência quadrática, perfil sazonal mensal e normalização do ruído \\
+\hline
+
+Arquitetura
+& $\mathrm{GRU}(32) \rightarrow \mathrm{Dense}(1)$ \\
+\hline
+
+Função de perda
+& Erro quadrático médio (MSE) \\
+\hline
+
+Otimizador
+& Adam, com taxa de aprendizado $0{,}01$ \\
+\hline
+
+Número de épocas
+& 50 \\
+\hline
+
+Tamanho do lote
+& 32 \\
+\hline
+
+Validação interna
+& 10\% das janelas de treinamento \\
+\hline
+
+Semente aleatória
+& 42 \\
+\hline
+
+Horizonte futuro
+& 72 meses, com previsão recursiva \\
+\hline
+
+Histórico das perdas
+& Não persistido pelo script \\
+\hline\hline
+\end{tabular}
+\end{table}
+
+O treinamento foi realizado por meio da função de perda erro quadrático médio (MSE), utilizando o otimizador Adam com taxa de aprendizado igual a 0,01. A rede LSTM foi treinada durante 100 épocas, com lotes de oito janelas, enquanto a rede GRU foi treinada durante 50 épocas, com lotes de 32 janelas. Em ambos os casos, 10\% das janelas de treinamento foram utilizadas para validação interna.
 
 Enquanto a LSTM possui um custo computacional maior devido ao uso constante desses três \textit{gates}, a GRU otimiza significativamente esse processo fundindo os estados ocultos e utilizando apenas dois mecanismos principais: o portão de atualização (\textit{update gate}) e o portão de redefinição (\textit{reset gate}) \cite{cho2014learning}. Para formalizar a dinâmica de aprendizado da célula GRU, que obteve o melhor desempenho neste estudo, o fluxo de informação no instante $t$ é governado pelas seguintes equações:
 
@@ -328,7 +512,7 @@ $$h_t = (1 - z_t) \odot h_{t-1} + z_t \odot \tilde{h}_t$$
 
 Onde $\sigma$ denota a função de ativação sigmoide não linear, $\odot$ representa o produto de Hadamard (\textit{element-wise}), $x_t$ é o vetor de entrada multivariado, $h_{t-1}$ é o estado oculto da iteração anterior. As matrizes de pesos $W$ e $U$, bem como os vetores de viés $b$, constituem os parâmetros hiperdimensionais otimizados iterativamente pelo otimizador Adam durante a fase de convergência.
 
-\newpage
+%\newpage
 Para resolver o problema prático de ausência de granularidade temporal nas cidades do interior do estado (esparsidade de amostras), este trabalho propõe uma abordagem de \textbf{engenharia de tensores multidimensionais}, ilustrada na Fig.~\ref{fig:gru_fluxo}.
 
 \begin{figure}[!ht]
@@ -438,7 +622,7 @@ O mapeamento descritivo da base foi integrado a quatro painéis estruturais prin
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=0.8\linewidth]{PainelResumo.png}
+    \includegraphics[width=0.95\linewidth]{PainelResumo.png}
     \caption{Aba Principal do \textit{dashboard} desenvolvido em \textit{Shiny}.}
     \label{fig:PainelResumo}
 \end{figure}
